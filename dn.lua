@@ -5378,11 +5378,23 @@ do -- UI funcs and tables
             end
         end)
 
-
+        local CursorObject = Drawing.new("Triangle")
+        CursorObject.Filled = true
+        
+        local function UpdateCursor()
+            CursorObject.Color = UIStyle.UIcolors.Accent
+            CursorObject.Visible = MainContainer.Visible
+        
+            local x, y = Mouse.X, Mouse.Y
+        
+            CursorObject.PointA = Vector2.new(x, y)            
+            CursorObject.PointB = Vector2.new(x - 7, y + 15)    
+            CursorObject.PointC = Vector2.new(x + 7, y + 15)   
+        end
         function UILibrary:Initialize()
-           -- MainContainer:GetPropertyChangedSignal("Visible"):Connect(UpdateCursor)
+            MainContainer:GetPropertyChangedSignal("Visible"):Connect(UpdateCursor)
 
-           -- Mouse.Move:Connect(UpdateCursor)
+            Mouse.Move:Connect(UpdateCursor)
 
             -- Dragging the UI
             local gui = MainContainer
@@ -5422,9 +5434,9 @@ do -- UI funcs and tables
                     update(input)
                 end
             end) 
-         --   MainContainer:GetPropertyChangedSignal("Visible"):Connect(UpdateCursor)
+            MainContainer:GetPropertyChangedSignal("Visible"):Connect(UpdateCursor)
 
-          --  Mouse.Move:Connect(UpdateCursor)
+            Mouse.Move:Connect(UpdateCursor)
             UpdateTweens()
             -- retarded
             task.wait()
