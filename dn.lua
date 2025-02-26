@@ -3086,58 +3086,57 @@ do -- UI funcs and tables
             SortOrder = Enum.SortOrder.LayoutOrder,
             VerticalAlignment = Enum.VerticalAlignment.Top
         })
-        UILibrary.UseListSize = false
-        function UILibrary:AddKeyBindList(KeyBindName)
-            local KeyBindTitleFakeBackGround = UIUtilities:Create("Frame", {
-                AnchorPoint = Vector2.new(0, 0),
-                Visible = true,
-                BackgroundColor3 = Color3.fromRGB(40, 40, 40),
-                BackgroundTransparency = 1,
-                BorderColor3 = Color3.fromRGB(40, 40, 40),
-                BorderMode = Enum.BorderMode.Outline,
-                BorderSizePixel = 0,
-                Name = KeyBindName,
-                Parent = UILibrary.KeyBindContainer, 
-                Position = UDim2.new(0, 0, 0, 0),
-                Size = UDim2.new(1, 0, 0, 14),
-                ZIndex = 6
-            })
-            
-            local KeyBindTitleEventLogContainer = UIUtilities:Create("Frame", {
-                AnchorPoint = Vector2.new(0, 0),
-                BackgroundColor3 = Color3.fromRGB(40, 40, 40),
-                BackgroundTransparency = 0,
-                BorderColor3 = Color3.fromRGB(40, 40, 40),
-                BorderMode = Enum.BorderMode.Outline,
-                BorderSizePixel = 0,
-                Name = KeyBindName,
-                Parent = KeyBindTitleFakeBackGround, 
-                Position = UDim2.new(0, 0, 0, 3),
-                Size = UDim2.new(1, 0, 0, 18),
-                ZIndex = 7
-            })
-          --[[ local KeyBindTitleBackGroundStyling
-            if KeyBindName == "Keybinds" then -- too lazy srry
-                local PercentageCover = 10/KeyBindTitleFakeBackGround.AbsoluteSize.Y
-                KeyBindTitleBackGroundStyling = UIUtilities:Create("UIGradient", {
-                    Color = ColorSequence.new({
-                        ColorSequenceKeypoint.new(0, UIStyle.UIcolors.ColorD),
-                        ColorSequenceKeypoint.new(PercentageCover - PercentageCover/8, UIStyle.UIcolors.ColorA),
-                        ColorSequenceKeypoint.new(1, UIStyle.UIcolors.ColorA)
-                    }),
-                    Rotation = 90,
-                    Parent = KeyBindTitleEventLogContainer
-                })
-            else
-                KeyBindTitleBackGroundStyling = UIUtilities:Create("UIGradient", {
-                    Color = ColorSequence.new({
-                        ColorSequenceKeypoint.new(0, UIStyle.UIcolors.ColorA),
-                        ColorSequenceKeypoint.new(1, UIStyle.UIcolors.ColorA)
-                    }),
-                    Rotation = 0,
-                    Parent = KeyBindTitleEventLogContainer
-                })
-            end]]
+       		UILibrary.UseListSize = false
+		function UILibrary:AddKeyBindList(KeyBindName)
+			local KeyBindTitleFakeBackGround = UIUtilities:Create("Frame", {
+				AnchorPoint = Vector2.new(0, 0),
+				Visible = true,
+				BackgroundColor3 = UIStyle.UIcolors.FullWhite,
+				BackgroundTransparency = 1,
+				BorderColor3 = UIStyle.UIcolors.FullWhite,
+				BorderMode = Enum.BorderMode.Outline,
+				BorderSizePixel = 0,
+				Name = KeyBindName,
+				Parent = UILibrary.KeyBindContainer, 
+				Position = UDim2.new(0, 0, 0, 0),
+				Size = UDim2.new(1, 0, 0, 14),
+				ZIndex = 6
+			})
+			local KeyBindTitleEventLogContainer = UIUtilities:Create("Frame", {
+				AnchorPoint = Vector2.new(0, 0),
+				BackgroundColor3 = UIStyle.UIcolors.FullWhite,
+				BackgroundTransparency = 0,
+				BorderColor3 = UIStyle.UIcolors.FullWhite,
+				BorderMode = Enum.BorderMode.Outline,
+				BorderSizePixel = 0,
+				Name = KeyBindName,
+				Parent = KeyBindTitleFakeBackGround, 
+				Position = UDim2.new(0, 0, 0, 3),
+				Size = UDim2.new(1, 0, 0, 18),
+				ZIndex = 7
+			})
+			local KeyBindTitleBackGroundStyling
+			if KeyBindName == "Keybinds" then -- too lazy srry
+				local PercentageCover = 10/KeyBindTitleFakeBackGround.AbsoluteSize.Y
+				KeyBindTitleBackGroundStyling = UIUtilities:Create("UIGradient", {
+					Color = ColorSequence.new({
+						ColorSequenceKeypoint.new(0, UIStyle.UIcolors.ColorD),
+						ColorSequenceKeypoint.new(PercentageCover - PercentageCover/8, UIStyle.UIcolors.ColorA),
+						ColorSequenceKeypoint.new(1, UIStyle.UIcolors.ColorA)
+					}),
+					Rotation = 90,
+					Parent = KeyBindTitleEventLogContainer
+				})
+			else
+				KeyBindTitleBackGroundStyling = UIUtilities:Create("UIGradient", {
+					Color = ColorSequence.new({
+						ColorSequenceKeypoint.new(0, UIStyle.UIcolors.ColorA),
+						ColorSequenceKeypoint.new(1, UIStyle.UIcolors.ColorA)
+					}),
+					Rotation = 0,
+					Parent = KeyBindTitleEventLogContainer
+				})
+			end
             local v1 = UIUtilities:Create("Frame", {
                 AnchorPoint = Vector2.new(0.5, 0.5),
                 BackgroundColor3 = UIStyle.UIcolors.ColorC,
@@ -3182,7 +3181,7 @@ do -- UI funcs and tables
                 Size = UDim2.new(1, 1, 1, 1),
                 ZIndex = 4
             })
-            --[[local KeyBindTitleHue, KeyBindTitleSat, KeyBindTitleVal = RGBtoHSV(UIStyle.UIcolors.Accent)
+            local KeyBindTitleHue, KeyBindTitleSat, KeyBindTitleVal = RGBtoHSV(UIStyle.UIcolors.Accent)
             local KeyBindTitleBackGroundAccentStyling = UIUtilities:Create("UIGradient", {
                 Color = ColorSequence.new({
                     ColorSequenceKeypoint.new(0, Color3.fromHSV(KeyBindTitleHue, KeyBindTitleSat, KeyBindTitleVal - 0.1)),
@@ -3191,7 +3190,7 @@ do -- UI funcs and tables
                 Rotation = 90,
                 Parent = KeyBindTitleBackGroundAccent
             })
-            table.insert(UIAccents, KeyBindTitleBackGroundAccentStyling)]]
+            table.insert(UIAccents, KeyBindTitleBackGroundAccentStyling)
             local KeyBindTitleBackGroundText = UIUtilities:Create("TextLabel", {
                 AnchorPoint = Vector2.new(1, 0.5),
                 BackgroundTransparency = 1, 
