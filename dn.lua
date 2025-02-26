@@ -5370,26 +5370,19 @@ do -- UI funcs and tables
         realWait(0.2)
         tweentime = 0.25
 
-        local CursorObject = Drawing.new("Triangle")
-		CursorObject.Filled = true
-
-		local function UpdateCursor()
-			CursorObject.Color = UIStyle.UIcolors.Accent
-
-			CursorObject.Visible = MainContainer.Visible
-
-			local x, y = Mouse.X, Mouse.Y
-
-			CursorObject.PointA = Vector2.new(x, y + 36)
-			CursorObject.PointB = Vector2.new(x, y + 36 + 15)
-			CursorObject.PointC = Vector2.new(x + 10, y + 46)
-		end
+         RunService.Heartbeat:Connect(function()
+            if MainContainer.Visible == true then 
+                UserInputService.MouseBehavior = Enum.MouseBehavior.Default
+            else
+                UserInputService.MouseBehavior = Enum.MouseBehavior.LockCenter
+            end
+        end)
 
 
         function UILibrary:Initialize()
-            MainContainer:GetPropertyChangedSignal("Visible"):Connect(UpdateCursor)
+           -- MainContainer:GetPropertyChangedSignal("Visible"):Connect(UpdateCursor)
 
-            Mouse.Move:Connect(UpdateCursor)
+           -- Mouse.Move:Connect(UpdateCursor)
 
             -- Dragging the UI
             local gui = MainContainer
@@ -5429,9 +5422,9 @@ do -- UI funcs and tables
                     update(input)
                 end
             end) 
-            MainContainer:GetPropertyChangedSignal("Visible"):Connect(UpdateCursor)
+         --   MainContainer:GetPropertyChangedSignal("Visible"):Connect(UpdateCursor)
 
-            Mouse.Move:Connect(UpdateCursor)
+          --  Mouse.Move:Connect(UpdateCursor)
             UpdateTweens()
             -- retarded
             task.wait()
