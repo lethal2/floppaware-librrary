@@ -5387,9 +5387,9 @@ do -- UI funcs and tables
 
 			local x, y = Mouse.X, Mouse.Y
 
-			CursorObject.PointA = Vector2.new(x, y + 38)
-			CursorObject.PointB = Vector2.new(x, y + 38 + 15)
-			CursorObject.PointC = Vector2.new(x + 10, y + 48)
+			CursorObject.PointA = Vector2.new(x, y + 40)
+			CursorObject.PointB = Vector2.new(x, y + 40 + 15)
+			CursorObject.PointC = Vector2.new(x + 10, y + 50)
 		end
 
         function UILibrary:Initialize()
