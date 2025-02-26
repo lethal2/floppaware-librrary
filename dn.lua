@@ -5370,14 +5370,6 @@ do -- UI funcs and tables
         realWait(0.2)
         tweentime = 0.25
 
-        RunService.Heartbeat:Connect(function()
-            if MainContainer.Visible == true then 
-                UserInputService.MouseBehavior = Enum.MouseBehavior.Default
-            else
-                UserInputService.MouseBehavior = Enum.MouseBehavior.LockCenter
-            end
-        end)
-
         local CursorObject = Drawing.new("Triangle")
 		CursorObject.Filled = true
 
