@@ -5381,16 +5381,18 @@ do -- UI funcs and tables
         local CursorObject = Drawing.new("Triangle")
         CursorObject.Filled = true
         
-        local function UpdateCursor()
-            CursorObject.Color = UIStyle.UIcolors.Accent
-            CursorObject.Visible = MainContainer.Visible
-        
-            local x, y = Mouse.X, Mouse.Y
-        
-            CursorObject.PointA = Vector2.new(x, y)            
-            CursorObject.PointB = Vector2.new(x - 7, y + 15)    
-            CursorObject.PointC = Vector2.new(x + 7, y + 15)   
-        end
+		local function UpdateCursor()
+			CursorObject.Color = UIStyle.UIcolors.Accent
+
+			CursorObject.Visible = MainContainer.Visible
+
+			local x, y = Mouse.X, Mouse.Y
+
+			CursorObject.PointA = Vector2.new(x, y + 38)
+			CursorObject.PointB = Vector2.new(x, y + 38 + 15)
+			CursorObject.PointC = Vector2.new(x + 10, y + 48)
+		end
+
         function UILibrary:Initialize()
             MainContainer:GetPropertyChangedSignal("Visible"):Connect(UpdateCursor)
 
