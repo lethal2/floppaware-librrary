@@ -4,5 +4,6 @@ return {
     },
     userHWID = {
         ["66B04247-AEBA-4027-A8FF-1EFD31127D08"] = "Tw1ren : UID 1",
+        ["07A1EB59-7F19-4BF2-9D59-C49A7791A065"] = "Bezelo : UID 2",
     }
 }
