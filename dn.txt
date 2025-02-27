@@ -3,6 +3,6 @@ return {
         ["BE1A3AA9-C70E-4024-B6B7-7B80DB3B1540"] = "snowcat",
     },
     userHWID = {
-        ["66B04247-AEBA-4027-A8FF-1EFD31127D08"] = "Tw1ren",
+        ["66B04247-AEBA-4027-A8FF-1EFD31127D08"] = "Tw1ren : UID 1",
     }
 }
