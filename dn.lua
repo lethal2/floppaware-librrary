@@ -5369,27 +5369,20 @@ do -- UI funcs and tables
         realWait(0.2)
         tweentime = 0.25
 
-         RunService.Heartbeat:Connect(function()
-            if MainContainer.Visible == true then 
-                UserInputService.MouseBehavior = Enum.MouseBehavior.Default
-            else
-                UserInputService.MouseBehavior = Enum.MouseBehavior.LockCenter
-            end
-        end)
+		RunService.Heartbeat:Connect(function()
+				if MainContainer.Visible then 
+						UserInputService.MouseBehavior = Enum.MouseBehavior.Default
+						UserInputService.OverrideMouseIconBehavior = Enum.OverrideMouseIconBehavior.ForceShow
+				else
+						UserInputService.OverrideMouseIconBehavior = Enum.OverrideMouseIconBehavior.None
+				end
+		end)
 
         local CursorObject = Drawing.new("Triangle")
         CursorObject.Filled = true
         
 		local function UpdateCursor()
-			CursorObject.Color = UIStyle.UIcolors.Accent
-
-			CursorObject.Visible = MainContainer.Visible
-
-			local x, y = Mouse.X, Mouse.Y
-
-			CursorObject.PointA = Vector2.new(x, y + 40)
-			CursorObject.PointB = Vector2.new(x, y + 40 + 15)
-			CursorObject.PointC = Vector2.new(x + 10, y + 50)
+print("NIGGA")
 		end
 
         function UILibrary:Initialize()
