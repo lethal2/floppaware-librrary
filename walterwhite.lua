@@ -5419,9 +5419,9 @@ do -- UI funcs and tables
 													local x, y = Mouse.X, Mouse.Y
 										
                       
-													CursorObject.PointA = Vector2.new(x, y + 54)         
-													CursorObject.PointB = Vector2.new(x, y + 69)        
-													CursorObject.PointC = Vector2.new(x + 10, y + 64)    
+                                CursorObject.PointA = Vector2.new(x, y + 57)         
+                                CursorObject.PointB = Vector2.new(x, y + 72)        
+                                CursorObject.PointC = Vector2.new(x + 10, y + 67)     
 													
 												end
 
